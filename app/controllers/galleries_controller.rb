@@ -77,6 +77,7 @@ class GalleriesController < ApplicationController
       redirect_to user_gallery_path(@user, @gallery)
     else
       @gallery.destroy
+      flash[:notice] = "Gallery successfully deleted." 
       redirect_to user_galleries_path(@user)
     end
   end
