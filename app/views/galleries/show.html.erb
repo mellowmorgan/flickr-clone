@@ -1,4 +1,5 @@
 <h3>Gallery <%= @gallery.name %></h3>
+<h3><%= link_to @user.email, user_galleries_path(@user) %></h3>
 <% if @gallery.image.attached? %>
   <%= image_tag @gallery.image, style: 'height:400px' %>
   <p><%= link_to 'Remove Image', delete_image_attachment_user_gallery_path(@user, @gallery),

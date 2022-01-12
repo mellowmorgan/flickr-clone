@@ -1,9 +1,11 @@
 <% if user_signed_in? %>
   <%= link_to "View My Galleries", user_galleries_path(current_user) %>
   <% @users.each do |user| %>
+    
     <% user.galleries.each do |gallery| %>
+      <p><%= link_to gallery.name, user_gallery_path(user, gallery) %></p>
       <% if gallery.image.attached? %>
-      <p><%= gallery.name %></p>
+      
       <%= image_tag gallery.image, style: 'height:400px' %>  <br>
       <% end %>
     <% end %>

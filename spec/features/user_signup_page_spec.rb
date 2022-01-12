@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "user signup process" do
-  it "signs user up when all fields entered" do
+  it "signs user up when all fields entered" do 
     visit '/'
     click_on 'Sign-In/Sign-Up'
     click_on 'Sign up'

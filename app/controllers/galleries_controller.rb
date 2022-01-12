@@ -33,6 +33,7 @@ class GalleriesController < ApplicationController
     end
   end
   def delete_image_attachment
+    @user = User.find(params[:user_id])
     @gallery= Gallery.find(params[:id])
     @image = @gallery.image
     if current_user != @user
