@@ -1,7 +1,19 @@
 <h3>Gallery <%= @gallery.name %></h3>
 <% if @gallery.image.attached? %>
   <%= image_tag @gallery.image, style: 'height:400px' %>
-  <% else %>
-  <p>No images</p>
+  <p><%= link_to 'Remove Image', delete_image_attachment_user_gallery_path(@user, @gallery),
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %></p>
+ 
+<% else %>
+  <p>No image</p>
 <% end %>
+
+<% if current_user %>
+  <%= link_to 'Edit Gallery', edit_user_gallery_path(@user, @gallery) %>
+  <p><%= link_to "Delete Gallery", user_gallery_path(@user, @gallery),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+<% end %>
+                        <p><%= link_to "Return to galleries", user_galleries_path %></p>
 
